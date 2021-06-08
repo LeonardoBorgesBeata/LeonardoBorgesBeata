@@ -1,10 +1,56 @@
-- 👋 Hi, I’m @LeonardoBorgesBeata
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-
-<!---
-LeonardoBorgesBeata/LeonardoBorgesBeata is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+let pedra = 0
+let tesoura = 0
+let papel = 0
+radio.onReceivedNumber(function (receivedNumber) {
+    if (receivedNumber == 1) {
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    }
+    if (receivedNumber == 2) {
+        basic.showLeds(`
+            . . . . .
+            . # # # .
+            . # # # .
+            . # # # .
+            . . . . .
+            `)
+    }
+    if (receivedNumber == 3) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+    }
+})
+input.onButtonPressed(Button.A, function () {
+    pedra = randint(0, 3)
+    if (pedra == 1) {
+        basic.showNumber(pedra)
+        radio.sendNumber(pedra)
+    }
+})
+input.onButtonPressed(Button.AB, function () {
+    tesoura = randint(0, 3)
+    if (tesoura == 3) {
+        basic.showNumber(tesoura)
+        radio.sendNumber(tesoura)
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    papel = randint(0, 3)
+    if (papel == 2) {
+        basic.showNumber(papel)
+        radio.sendNumber(papel)
+    }
+})
+basic.forever(function () {
+	
+})
